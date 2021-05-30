@@ -58,6 +58,8 @@ class GPU:
         display_mode,
         display_active,
         temp_gpu,
+        power_draw,
+        power_limit
     ):
         self.id = ID
         self.uuid = uuid
@@ -119,10 +121,10 @@ def getGPUs():
     GPUs = []
     for g in range(numDevices):
         line = lines[g]
-        # print(line)
+#         print(line)
         vals = line.split(", ")
         # print(vals)
-        for i in range(12):
+        for i in range(len(vals)): # range(12)
             # print(vals[i])
             if i == 0:
                 deviceIds = int(vals[i])
